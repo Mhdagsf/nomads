@@ -29,16 +29,16 @@
                          <tbody>
                              @forelse ($items as $item)
                                  <tr>
-                                     <td>{{ $items->id }}</td>
-                                     <td>{{ $items->title }}</td>
-                                     <td>{{ $items->location }}</td>
-                                     <td>{{ $items->type }}</td>
-                                     <td>{{ $items->departure_date }}</td>
-                                     <td>{{ $items->type }}</td>
+                                     <td>{{ $item->id }}</td>
+                                     <td>{{ $item->title }}</td>
+                                     <td>{{ $item->location }}</td>
+
+                                     <td>{{ $item->type }}</td>
+                                     <td>{{ $item->departure_date }}</td>
                                      <td>
-                                         <a href="{{ route('travel-package.edit', $items->id) }}" class="btn btn-info"><i
-                                                 class="fa fa-pencil-alt') }}"></a>
-                                         <form action="{{ route('travel-package.destroy', $items->id) }}" method="POST"
+                                         <a href="{{ route('travel-package.edit', $item->id) }}" class="btn btn-info"><i
+                                                 class="fa fa-pencil-alt"></i></a>
+                                         <form action="{{ route('travel-package.destroy', $item->id) }}" method="POST"
                                              class="d-inline">
                                              @csrf
                                              @method('delete')
