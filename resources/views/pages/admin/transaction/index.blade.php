@@ -6,10 +6,8 @@
 
          <!-- Page Heading -->
          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-             <h1 class="h3 mb-0 text-gray-800">Gallery</h1>
-             <a href="{{ route('gallery.create') }}" class="btn btn-sm btn-primary shadow-sm">
-                 <i class="fas fa-plus fa-sm text-white-50"></i> Tambah Gallery
-             </a>
+             <h1 class="h3 mb-0 text-gray-800">Transaksi</h1>
+
          </div>
 
          <div class="row">
@@ -20,8 +18,10 @@
                              <tr>
                                  <th>ID</th>
                                  <th>Travel</th>
-                                 <th>Gambar</th>
-
+                                 <th>User</th>
+                                 <th>Visa</th>
+                                 <th>Total</th>
+                                 <th>Status</th>
                                  <th>Action</th>
                              </tr>
                          </thead>
@@ -30,14 +30,16 @@
                                  <tr>
                                      <td>{{ $item->id }}</td>
                                      <td>{{ $item->travel_package->title ?? 'Data Terhapus' }}</td>
+                                     <td>{{ $item->user->name ?? 'Data user tidak ada' }}</td>
+                                     <td>{{ $item->additional_visa }}</td>
+                                     <td>{{ $item->transaction_total }}</td>
+                                     <td>{{ $item->transaction_status }}</td>
                                      <td>
-                                         <img src="{{ Storage::url($item->image) }}" style="width: 150px"
-                                             class="img-thumbnail" />
-                                     </td>
-                                     <td>
-                                         <a href="{{ route('gallery.edit', $item->id) }}" class="btn btn-info"><i
+                                         <a href="{{ route('transaction.show', $item->id) }}" class="btn btn-primary"><i
+                                                 class="fa fa-eye"></i></a>
+                                         <a href="{{ route('transaction.edit', $item->id) }}" class="btn btn-info"><i
                                                  class="fa fa-pencil-alt"></i></a>
-                                         <form action="{{ route('gallery.destroy', $item->id) }}" method="POST"
+                                         <form action="{{ route('transaction.destroy', $item->id) }}" method="POST"
                                              class="d-inline">
                                              @csrf
                                              @method('delete')
