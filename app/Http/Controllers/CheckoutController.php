@@ -43,7 +43,7 @@ class CheckoutController extends Controller
     public function remove(Request $request, $detail_id)
     {
         $item = TransactionDetail::findOrFail($detail_id);
-        $transaction = Transaction::with(['details', 'travel_package'])->findOrFail($item->transaction_id);
+        $transaction = Transaction::with(['details', 'travel_package'])->findOrFail($item->transactions_id);
 
         if ($item->is_visa) {
             $transaction->transaction_total -= 190;
@@ -54,7 +54,7 @@ class CheckoutController extends Controller
 
         $item->delete();
 
-        return redirect()->route('checkout', $item->transaction_id);
+        return redirect()->route('checkout', $item->transactions_id);
     }
 
     public function create(Request $request, $id)

@@ -32,9 +32,9 @@ Route::get('/checkout/{id}', [CheckoutController::class, 'index'])->name('checko
 
 Route::post('/checkout/create/{id}', [CheckoutController::class, 'create'])->name('checkout-create')->middleware(['auth', 'verified']);
 
-Route::post('/checkout/remove/{id}', [CheckoutController::class, 'remove'])->name('checkout-remove')->middleware(['auth', 'verified']);
+Route::get('/checkout/remove/{id}', [CheckoutController::class, 'remove'])->name('checkout-remove')->middleware(['auth', 'verified']);
 
-Route::post('/checkout/confirm/{id}', [CheckoutController::class, 'success'])->name('checkout-success')->middleware(['auth', 'verified']);
+Route::get('/checkout/confirm/{id}', [CheckoutController::class, 'success'])->name('checkout-success')->middleware(['auth', 'verified']);
 
 Route::prefix('admin')
     ->middleware(['auth', 'admin'])
