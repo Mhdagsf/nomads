@@ -19,7 +19,9 @@
     <!-- https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp -->
     @include('includes.navbar')
     @yield('content')
-    @include('includes.footer')
+    @if (!Route::is('login', 'register'))
+        @include('includes.footer')
+    @endif
     @stack('prepend-script')
     @include('includes.script')
     @stack('addon-script')
