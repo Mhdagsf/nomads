@@ -24,8 +24,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
-// Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
-// Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout-success');
 
 Route::post('/checkout/{id}', [CheckoutController::class, 'process'])->name('checkout_process')->middleware(['auth', 'verified']);
 
@@ -41,6 +39,7 @@ Route::prefix('admin')
     ->middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
 
         // Route Profile 
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');

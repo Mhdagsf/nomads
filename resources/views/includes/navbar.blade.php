@@ -29,6 +29,14 @@
                  <li class="nav-item mx-md-2">
                      <a class="nav-link" href="#">Testimonial</a>
                  </li>
+                 <li class="nav-item mx-md-2">
+                     @auth
+                         @if (Auth::user()->roles == 'ADMIN')
+                             <a class="nav-link" href="{{ route('dashboard') }}">Dashboard Admin</a>
+                         @endif
+                     @endauth
+
+                 </li>
              </ul>
 
              @guest
@@ -48,6 +56,7 @@
                  </form>
              @endguest
              @auth
+
                  <!-- Mobile button -->
                  <form class="form-inline d-sm-block d-md-none" action="{{ url('logout') }}" method="POST">
                      @csrf
