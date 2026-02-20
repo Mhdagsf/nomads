@@ -39,10 +39,16 @@
                                             <label class="form-label" for="email">{{ __('Email Address') }}</label>
                                         </div>
 
-                                        <div data-mdb-input-init class="form-outline mb-4">
-                                            <input type="password" id="password"
+                                        <div data-mdb-input-init class="form-outline mb-4 position-relative">
+                                            <input type="password" id="password" {{-- ID ini harus sesuai dengan yang ada di JavaScript --}}
                                                 class="form-control form-control-lg @error('password') is-invalid @enderror"
                                                 name="password" required />
+
+                                            {{-- Tambahkan tombol icon di bawah input --}}
+                                            <button type="button" onclick="togglePassword()" {{-- Memanggil fungsi JS yang sudah kamu buat --}}
+                                                style="position: absolute; right: 15px; top: 15px; border: none; background: none; z-index: 10;">
+                                                <i class="fas fa-eye" id="eyeIcon"></i>
+                                            </button>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -87,4 +93,24 @@
             </div>
         </div>
     </section>
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+
+            if (passwordField.type === 'password') {
+                // Ubah tipe input jadi teks untuk melihat password
+                passwordField.type = 'text';
+                // Ubah icon menjadi mata tercoret
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                // Kembalikan tipe input jadi password
+                passwordField.type = 'password';
+                // Kembalikan icon jadi mata terbuka
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
 @endsection

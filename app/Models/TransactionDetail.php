@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TransactionDetail extends Model
 {
     use SoftDeletes;
+    /**
+     * Explicit table name because migration created `transactions_details`.
+     */
+    protected $table = 'transactions_details';
     protected $fillable = [
         'transactions_id',
         'username',

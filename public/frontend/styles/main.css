@@ -121,7 +121,7 @@ header .btn-get-started:hover {
 
 .section-popular-content .section-popular-travel .card-travel .travel-location {
     font-size: 26px;
-    color: #fff;
+    color: #ffffff;
 }
 
 .section-popular-content
@@ -467,6 +467,8 @@ header .btn-get-started:hover {
     background-position: right center;
     background-size: auto 100%;
 }
+
+/* Section news */
 
 @media (min-width: 1025px) {
     .h-custom-2 {

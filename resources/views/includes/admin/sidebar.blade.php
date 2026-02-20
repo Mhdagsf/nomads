@@ -27,6 +27,11 @@
             <span>Galeri Travel</span></a>
     </li>
     <li class="nav-item ">
+        <a class="nav-link" href="{{ route('testimonial.index') }}">
+            <i class="fas fa-fw fa-comments"></i>
+            <span>Tesitmonial</span></a>
+    </li>
+    <li class="nav-item ">
         <a class="nav-link" href="{{ route('transaction.index') }}">
             <i class="fas fa-fw fa-dollar-sign"></i>
             <span>Transaksi</span></a>

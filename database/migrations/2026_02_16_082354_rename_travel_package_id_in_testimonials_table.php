@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('roles')->default('USER');
-            // user and admin
+        Schema::table('testimonials', function (Blueprint $table) {
+            $table->renameColumn('travel_package_id', 'travel_packages_id');
         });
     }
 
@@ -22,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('roles');
+        Schema::table('testimonials', function (Blueprint $table) {
+            //
         });
     }
 };

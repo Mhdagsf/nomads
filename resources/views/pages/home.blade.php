@@ -76,6 +76,7 @@
                 </div>
             </div>
         </section>
+
         <section class="section-networks" id="networks">
             <div class="container">
                 <div class="row">
@@ -93,6 +94,58 @@
                 </div>
             </div>
         </section>
+
+        <section class="section-popular" id="popular">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center section-popular-heading">
+                        <h2>Berita Terkini</h2>
+                        <p>
+                            Informasi eksklusif mengenai destinasi dan kebijakan perjalanan Anda
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-testimonials-content" id="testimonialsContent">
+            <div class="container">
+                <div class="section-popular-travel row justify-content-center match-height">
+                    @foreach ($items as $item)
+                        @foreach ($item->testimonials as $testimonial)
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <div class="card card-testimonial text-center">
+                                    <div class="testimonial-content">
+                                        <img src="{{ Storage::url($testimonial->image ?? '/path/to/default.png') }}"
+                                            class="rounded-circle mb-4" />
+                                        <h3 class="mb-4">{{ $testimonial->name }}</h3>
+                                        <p class="testimonials">
+                                            {{ $testimonial->text }}
+                                        </p>
+                                    </div>
+                                    <hr />
+                                    <p class="trip-to mt-2">{{ $item->title ?? 'Data Terhapus' }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endforeach
+
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="#" class="btn btn-need-help px-4 mt-4 mx-1">
+                            I Need Help
+                        </a>
+                        <a href="{{ route('register') }}" class="btn btn-get-started px-4 mt-4 mx-1">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
         <section class="section-testimonials-heading" id="testimonialsHeading">
             <div class="container">
                 <div class="row">
@@ -110,48 +163,25 @@
         <section class="section-testimonials-content" id="testimonialsContent">
             <div class="container">
                 <div class="section-popular-travel row justify-content-center match-height">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="card card-testimonial text-center">
-                            <div class="testimonial-content">
-                                <img src="frontend/images/avatar-1.png" alt="" class="mb-4 rounded-circle" />
-                                <h3 class="mb-4">Angga Risky</h3>
-                                <p class="testimonials">
-                                    “ It was glorious and I could not stop to say wohooo for
-                                    every single moment Dankeeeeee “
-                                </p>
+                    @foreach ($items as $item)
+                        @foreach ($item->testimonials as $testimonial)
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <div class="card card-testimonial text-center">
+                                    <div class="testimonial-content">
+                                        <img src="{{ Storage::url($testimonial->image ?? '/path/to/default.png') }}"
+                                            class="rounded-circle mb-4" />
+                                        <h3 class="mb-4">{{ $testimonial->name }}</h3>
+                                        <p class="testimonials">
+                                            {{ $testimonial->text }}
+                                        </p>
+                                    </div>
+                                    <hr />
+                                    <p class="trip-to mt-2">{{ $item->title ?? 'Data Terhapus' }}</p>
+                                </div>
                             </div>
-                            <hr />
-                            <p class="trip-to mt-2">Trip to Ubud</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="card card-testimonial text-center">
-                            <div class="testimonial-content">
-                                <img src="frontend/images/avatar-2.png" alt="" class="mb-4 rounded-circle" />
-                                <h3 class="mb-4">Shayna</h3>
-                                <p class="testimonials">
-                                    “ The trip was amazing and I saw something beautiful in that
-                                    Island that makes me want to learn more “
-                                </p>
-                            </div>
-                            <hr />
-                            <p class="trip-to mt-2">Trip to Nusa Penida</p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="card card-testimonial text-center">
-                            <div class="testimonial-content mb-auto">
-                                <img src="frontend/images/avatar-3.png" alt="" class="mb-4 rounded-circle" />
-                                <h3 class="mb-4">Shabrina</h3>
-                                <p class="testimonials">
-                                    “ I loved it when the waves was shaking harder — I was
-                                    scared too “
-                                </p>
-                            </div>
-                            <hr />
-                            <p class="trip-to mt-2">Trip to Karimun Jawa</p>
-                        </div>
-                    </div>
+                        @endforeach
+                    @endforeach
+
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
