@@ -469,6 +469,39 @@ header .btn-get-started:hover {
 }
 
 /* Section news */
+.news-scroll-container {
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.news-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.news-card {
+    transition: all 0.3s ease;
+}
+
+.news-card:hover .news-img {
+    transform: scale(1.05);
+}
+
+.news-card:hover .news-overlay {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.news-card:hover .news-text {
+    opacity: 1 !important;
+}
+.custom__flex{
+    display: flex;
+    gap: 24px;
+    padding: 10px;
+}
 
 @media (min-width: 1025px) {
     .h-custom-2 {

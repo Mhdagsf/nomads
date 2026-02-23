@@ -108,41 +108,69 @@
             </div>
         </section>
 
-        <section class="section-testimonials-content" id="testimonialsContent">
-            <div class="container">
-                <div class="section-popular-travel row justify-content-center match-height">
-                    @foreach ($items as $item)
-                        @foreach ($item->testimonials as $testimonial)
-                            <div class="col-sm-6 col-md-6 col-lg-4">
-                                <div class="card card-testimonial text-center">
-                                    <div class="testimonial-content">
-                                        <img src="{{ Storage::url($testimonial->image ?? '/path/to/default.png') }}"
-                                            class="rounded-circle mb-4" />
-                                        <h3 class="mb-4">{{ $testimonial->name }}</h3>
-                                        <p class="testimonials">
-                                            {{ $testimonial->text }}
-                                        </p>
+
+
+        <section class="py-16">
+            <div class="container mx-auto px-4" style="max-width: 100%;">
+                <div class="news-scroll-container">
+                    <div class="custom__flex">
+                        <!-- News Item 1 -->
+                        <div class="news-card" style="flex: 0 0 320px; min-width: 320px;">
+                            <div
+                                style="position: relative;  overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; height: 380px; background-color: #d1d5db;">
+                                <img class="news-img"
+                                    src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=500&fit=crop"
+                                    alt="Berita 1"
+                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                                <div class="news-overlay"
+                                    style="position: absolute; inset: 0; background-color: rgba(0,0,0,0); transition: background-color 0.3s ease; display: flex; align-items: flex-end; padding: 24px;">
+                                    <div class="news-text" style="color: white; opacity: 0; transition: opacity 0.3s ease;">
+                                        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Destinasi Pantai
+                                            Terindah 2026</h3>
+                                        <p style="font-size: 14px;">20 Februari 2026</p>
                                     </div>
-                                    <hr />
-                                    <p class="trip-to mt-2">{{ $item->title ?? 'Data Terhapus' }}</p>
                                 </div>
                             </div>
-                        @endforeach
-                    @endforeach
-
-                </div>
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <a href="#" class="btn btn-need-help px-4 mt-4 mx-1">
-                            I Need Help
-                        </a>
-                        <a href="{{ route('register') }}" class="btn btn-get-started px-4 mt-4 mx-1">
-                            Get Started
-                        </a>
+                        </div>
+                        <div class="news-card" style="flex: 0 0 320px; min-width: 320px;">
+                            <div
+                                style="position: relative;  overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; height: 380px; background-color: #d1d5db;">
+                                <img class="news-img"
+                                    src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=500&fit=crop"
+                                    alt="Berita 1"
+                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                                <div class="news-overlay"
+                                    style="position: absolute; inset: 0; background-color: rgba(0,0,0,0); transition: background-color 0.3s ease; display: flex; align-items: flex-end; padding: 24px;">
+                                    <div class="news-text" style="color: white; opacity: 0; transition: opacity 0.3s ease;">
+                                        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Destinasi Pantai
+                                            Terindah 2026</h3>
+                                        <p style="font-size: 14px;">20 Februari 2026</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="news-card" style="flex: 0 0 320px; min-width: 320px;">
+                            <div
+                                style="position: relative;  overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; height: 380px; background-color: #d1d5db;">
+                                <img class="news-img"
+                                    src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=500&fit=crop"
+                                    alt="Berita 1"
+                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                                <div class="news-overlay"
+                                    style="position: absolute; inset: 0; background-color: rgba(0,0,0,0); transition: background-color 0.3s ease; display: flex; align-items: flex-end; padding: 24px;">
+                                    <div class="news-text" style="color: white; opacity: 0; transition: opacity 0.3s ease;">
+                                        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Destinasi Pantai
+                                            Terindah 2026</h3>
+                                        <p style="font-size: 14px;">20 Februari 2026</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
 
 
