@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory;
+    protected $fillable = ['name', 'slug'];
+
+    public function articles()
+    {
+        return $this->hasMany(ArticleNews::class, 'category_id', 'id');
+    }
 }

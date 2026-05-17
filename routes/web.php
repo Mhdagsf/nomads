@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\ArticleNewsController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\TravelPackageController;
 use App\Http\Controllers\Admin\TestimonialController;
@@ -10,6 +13,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\ProfileController;
+use App\Models\ArticleNews;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
+Route::get('/article-news/{slug}', [ArticleNewsController::class, 'show'])->name('article-news');
 
 
 Route::post('/checkout/{id}', [CheckoutController::class, 'process'])->name('checkout_process')->middleware(['auth', 'verified']);
@@ -38,6 +43,7 @@ Route::get('/checkout/remove/{id}', [CheckoutController::class, 'remove'])->name
 
 Route::get('/checkout/confirm/{id}', [CheckoutController::class, 'success'])->name('checkout-success')->middleware(['auth', 'verified']);
 
+
 Route::prefix('admin')
     ->middleware(['auth', 'admin'])
     ->group(function () {
@@ -49,8 +55,12 @@ Route::prefix('admin')
         Route::resource('travel-package', TravelPackageController::class);
         Route::resource('testimonial', TestimonialController::class);
         Route::resource('gallery', GalleryController::class);
-
+        Route::resource('category', CategoryController::class);
+        Route::resource('author', AuthorController::class);
+        Route::post('/article-news/upload', [ArticleNewsController::class, 'upload'])->name('article-news.upload');
+        Route::resource('article-news', ArticleNewsController::class);
         Route::resource('transaction', TransactionController::class);
+
     });
 
 Auth::routes(['verify' => true]);

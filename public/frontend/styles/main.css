@@ -497,14 +497,9 @@ header .btn-get-started:hover {
 .news-card:hover .news-text {
     opacity: 1 !important;
 }
-.custom__flex{
+.custom__flex {
     display: flex;
     gap: 24px;
     padding: 10px;
 }
 
-@media (min-width: 1025px) {
-    .h-custom-2 {
-        height: 100%;
-    }
-}

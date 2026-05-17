@@ -115,61 +115,51 @@
                 <div class="news-scroll-container">
                     <div class="custom__flex">
                         <!-- News Item 1 -->
-                        <div class="news-card" style="flex: 0 0 320px; min-width: 320px;">
-                            <div
-                                style="position: relative;  overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; height: 380px; background-color: #d1d5db;">
-                                <img class="news-img"
-                                    src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=500&fit=crop"
-                                    alt="Berita 1"
-                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                                <div class="news-overlay"
-                                    style="position: absolute; inset: 0; background-color: rgba(0,0,0,0); transition: background-color 0.3s ease; display: flex; align-items: flex-end; padding: 24px;">
-                                    <div class="news-text" style="color: white; opacity: 0; transition: opacity 0.3s ease;">
-                                        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Destinasi Pantai
-                                            Terindah 2026</h3>
-                                        <p style="font-size: 14px;">20 Februari 2026</p>
+                        @foreach ($articles as $item)
+                            <div class="news-card" style="flex: 0 0 320px; min-width: 320px;">
+                                <a href="{{ route('article-news', $item->slug) }}" class="news-card"
+                                    style="flex: 0 0 320px; min-width: 320px; text-decoration: none;">
+                                    <div style="position: relative; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; height: 380px; background-color: #d1d5db; border-radius: 8px;"
+                                        {{-- Efek Hover Inline --}}
+                                        onmouseover="this.querySelector('.news-img').style.transform='scale(1.1)'; this.querySelector('.news-img').style.filter='brightness(1.1)'; this.querySelector('.news-overlay').style.backgroundColor='rgba(0,0,0,0.3)';"
+                                        onmouseout="this.querySelector('.news-img').style.transform='scale(1)'; this.querySelector('.news-img').style.filter='brightness(1)'; this.querySelector('.news-overlay').style.backgroundColor='rgba(0,0,0,0.6)';">
+
+                                        {{-- Thumbnail --}}
+                                        <img src="{{ $item->thumbnail ? Storage::url($item->thumbnail) : asset('assets/frontend/images/default.jpg') }}"
+                                            alt="{{ $item->name }}" class="news-img"
+                                            style="width: 100%; height: 100%; object-fit: cover; transition: all 0.5s ease;">
+
+                                        {{-- Overlay --}}
+                                        <div class="news-overlay"
+                                            style="position: absolute; inset: 0; background-color: rgba(0,0,0,0.6); display: flex; align-items: flex-end; padding: 24px; transition: all 0.5s ease;">
+
+                                            <div class="news-text" style="color: white; width: 100%;">
+                                                <h3
+                                                    style="font-size: 18px; font-weight: bold; margin-bottom: 4px; line-height: 1.4;">
+                                                    {{ $item->name }}
+                                                </h3>
+                                                <p style="font-size: 13px; margin-bottom: 15px; opacity: 0.8;">
+                                                    {{ $item->created_at->translatedFormat('d F Y') }}
+                                                </p>
+
+                                                {{-- Tag Button --}}
+                                                <button type="button"
+                                                    style="padding: 8px 18px; background-color: #071C4D; color: white; border: none; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; transition: 0.3s;">
+                                                    Baca Selengkapnya
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                        </div>
-                        <div class="news-card" style="flex: 0 0 320px; min-width: 320px;">
-                            <div
-                                style="position: relative;  overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; height: 380px; background-color: #d1d5db;">
-                                <img class="news-img"
-                                    src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=500&fit=crop"
-                                    alt="Berita 1"
-                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                                <div class="news-overlay"
-                                    style="position: absolute; inset: 0; background-color: rgba(0,0,0,0); transition: background-color 0.3s ease; display: flex; align-items: flex-end; padding: 24px;">
-                                    <div class="news-text" style="color: white; opacity: 0; transition: opacity 0.3s ease;">
-                                        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Destinasi Pantai
-                                            Terindah 2026</h3>
-                                        <p style="font-size: 14px;">20 Februari 2026</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="news-card" style="flex: 0 0 320px; min-width: 320px;">
-                            <div
-                                style="position: relative;  overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; height: 380px; background-color: #d1d5db;">
-                                <img class="news-img"
-                                    src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=500&fit=crop"
-                                    alt="Berita 1"
-                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                                <div class="news-overlay"
-                                    style="position: absolute; inset: 0; background-color: rgba(0,0,0,0); transition: background-color 0.3s ease; display: flex; align-items: flex-end; padding: 24px;">
-                                    <div class="news-text" style="color: white; opacity: 0; transition: opacity 0.3s ease;">
-                                        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 8px;">Destinasi Pantai
-                                            Terindah 2026</h3>
-                                        <p style="font-size: 14px;">20 Februari 2026</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>
         </section>
+
 
 
 
